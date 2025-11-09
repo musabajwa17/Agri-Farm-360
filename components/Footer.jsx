@@ -1,26 +1,30 @@
-import React from 'react';
-import { Mail, Phone, Facebook, Twitter, Linkedin, Github, MapPin, Heart, Star } from 'lucide-react';
+"use client";
+import React from "react";
+import { Mail, Phone, MapPin, Heart, Star } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext"; // import your context
 
-export default function Footer ({ isDark }) {
-  const bgClass = isDark 
-    ? 'bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950' 
-    : 'bg-gradient-to-br from-gray-50 via-white to-gray-50';
-  
-  const textPrimary = isDark ? 'text-gray-100' : 'text-gray-900';
-  const textSecondary = isDark ? 'text-gray-400' : 'text-gray-600';
-  const textMuted = isDark ? 'text-gray-500' : 'text-gray-500';
-  const borderColor = isDark ? 'border-gray-800' : 'border-gray-200';
-  const hoverColor = isDark ? 'hover:text-green-400' : 'hover:text-green-600';
-  const accentColor = isDark ? 'text-green-400' : 'text-green-600';
-  const inputBg = isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-300';
-  const buttonBg = isDark 
-    ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500' 
-    : 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700';
+export default function Footer() {
+  const { isDark } = useTheme(); // use global theme
+
+  const bgClass = isDark
+    ? "bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950"
+    : "bg-gradient-to-br from-gray-50 via-white to-gray-50";
+
+  const textPrimary = isDark ? "text-gray-100" : "text-gray-900";
+  const textSecondary = isDark ? "text-gray-400" : "text-gray-600";
+  const textMuted = isDark ? "text-gray-500" : "text-gray-500";
+  const borderColor = isDark ? "border-gray-800" : "border-gray-200";
+  const hoverColor = isDark ? "hover:text-green-400" : "hover:text-green-600";
+  const accentColor = isDark ? "text-green-400" : "text-green-600";
+  const inputBg = isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-300";
+  const buttonBg = isDark
+    ? "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500"
+    : "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700";
 
   return (
     <footer className={`${bgClass} ${textPrimary} transition-colors duration-300`}>
-      {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 pt-16">
+        {/* Grid Sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-5">
           {/* Company Info */}
           <div className="space-y-6">
@@ -32,7 +36,7 @@ export default function Footer ({ isDark }) {
                 Empowering farmers with intelligent digital solutions. Transform your agricultural operations with our comprehensive farm management platform trusted by thousands worldwide.
               </p>
             </div>
-            
+
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className={`${accentColor} w-5 h-5 mt-1 flex-shrink-0`} />
@@ -60,7 +64,7 @@ export default function Footer ({ isDark }) {
           <div>
             <h3 className={`text-lg font-semibold mb-6 ${textPrimary}`}>PLATFORM</h3>
             <ul className="space-y-3">
-              {['Features', 'Pricing', 'Dashboard', 'Integrations', 'Mobile App', 'API Access'].map((item) => (
+              {["Features", "Pricing", "Dashboard", "Integrations", "Mobile App", "API Access"].map((item) => (
                 <li key={item}>
                   <a href="#" className={`${textSecondary} ${hoverColor} transition-colors text-sm inline-block`}>
                     {item}
@@ -74,7 +78,7 @@ export default function Footer ({ isDark }) {
           <div>
             <h3 className={`text-lg font-semibold mb-6 ${textPrimary}`}>SOLUTIONS</h3>
             <ul className="space-y-3">
-              {['Livestock Management', 'Crop Monitoring', 'Milk Sales', 'Smart Inventory', 'Analytics & Reports', 'Field Mapping'].map((item) => (
+              {["Livestock Management", "Crop Monitoring", "Milk Sales", "Smart Inventory", "Analytics & Reports", "Field Mapping"].map((item) => (
                 <li key={item}>
                   <a href="#" className={`${textSecondary} ${hoverColor} transition-colors text-sm inline-block`}>
                     {item}
@@ -88,7 +92,7 @@ export default function Footer ({ isDark }) {
           <div>
             <h3 className={`text-lg font-semibold mb-6 ${textPrimary}`}>SUPPORT</h3>
             <ul className="space-y-3">
-              {['Contact Us', 'About Us', 'Help Center', 'API Documentation', 'Community Forum', 'Training Resources'].map((item) => (
+              {["Contact Us", "About Us", "Help Center", "API Documentation", "Community Forum", "Training Resources"].map((item) => (
                 <li key={item}>
                   <a href="#" className={`${textSecondary} ${hoverColor} transition-colors text-sm inline-block`}>
                     {item}
@@ -103,13 +107,10 @@ export default function Footer ({ isDark }) {
         <div className={`border-t ${borderColor} py-12`}>
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-full">
-              {/* <span className="text-2xl">📧</span> */}
               <Star className={`${accentColor} w-5 h-5 flex-shrink-0`} />
               <span className={`${accentColor} text-sm font-semibold`}>Stay Updated</span>
             </div>
-            <h3 className={`text-2xl md:text-3xl font-bold ${textPrimary}`}>
-              Get the Latest Farm Tech Insights
-            </h3>
+            <h3 className={`text-2xl md:text-3xl font-bold ${textPrimary}`}>Get the Latest Farm Tech Insights</h3>
             <p className={`${textSecondary} text-sm md:text-base max-w-xl mx-auto`}>
               Subscribe to our newsletter for farming tips, product updates, and industry insights delivered to your inbox.
             </p>
@@ -125,30 +126,12 @@ export default function Footer ({ isDark }) {
             </div>
           </div>
         </div>
-
-        {/* Stats Section */}
-        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-5">
-          {[
-            { value: '2,500+', label: 'Active Farmers' },
-            { value: '15M+', label: 'Animals Tracked' },
-            { value: '50K+', label: 'Hectares Managed' },
-            { value: '99.9%', label: 'Uptime' }
-          ].map((stat) => (
-            <div key={stat.label} className="text-center space-y-2">
-              <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent`}>
-                {stat.value}
-              </div>
-              <div className={`${textSecondary} text-xs md:text-sm`}>{stat.label}</div>
-            </div>
-          ))}
-        </div> */}
       </div>
 
       {/* Bottom Bar */}
       <div className={`border-t ${borderColor}`}>
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Copyright */}
             <div className={`${textMuted} text-sm text-center md:text-left`}>
               © 2025 Farm Agri 360. All rights reserved. • 
               <span className="inline-flex items-center ml-1">
@@ -159,28 +142,8 @@ export default function Footer ({ isDark }) {
               </span>
             </div>
 
-            {/* Social Links */}
-            {/* <div className="flex items-center space-x-4">
-              {[
-                { Icon: Facebook, label: 'Facebook' },
-                { Icon: Twitter, label: 'Twitter' },
-                { Icon: Linkedin, label: 'LinkedIn' },
-                { Icon: Github, label: 'GitHub' }
-              ].map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className={`${textSecondary} ${hoverColor} transition-all transform hover:scale-110`}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div> */}
-
-            {/* Legal Links */}
             <div className="flex items-center space-x-4 text-sm">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item, index) => (
+              {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item, index) => (
                 <React.Fragment key={item}>
                   {index > 0 && <span className={textMuted}>•</span>}
                   <a href="#" className={`${textSecondary} ${hoverColor} transition-colors`}>
@@ -194,4 +157,4 @@ export default function Footer ({ isDark }) {
       </div>
     </footer>
   );
-};
+}
