@@ -11,6 +11,7 @@ export default function Header() {
     { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    // { name: "Dashboard", href: "/dashboard"}
   ];
 
   return (
@@ -35,14 +36,14 @@ export default function Header() {
             className="text-3xl font-black tracking-tight flex items-center space-x-1"
           >
             <span className="bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent">
-              AgriFarm
+              Agri
             </span>
             <span
               className={`transition-colors duration-500 ${
                 isDark ? "text-white" : "text-gray-900"
               }`}
             >
-              360°
+              Herd
             </span>
           </Link>
         </div>
